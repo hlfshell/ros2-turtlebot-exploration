@@ -27,15 +27,15 @@ def generate_launch_description():
         ),
 
         # # Integrate our nav2 stack
-        # IncludeLaunchDescription(
-        #     PythonLaunchDescriptionSource(
-        #         [get_package_share_directory('nav2_bringup'), '/launch', '/bringup_launch.py']
-        #     ),
-        #     launch_arguments={
-        #         "map": map_file,
-        #         "params_file": params_file,
-        #     }.items(),
-        # ),
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                [get_package_share_directory('nav2_bringup'), '/launch', '/bringup_launch.py']
+            ),
+            launch_arguments={
+                "map": map_file,
+                "params_file": params_file,
+            }.items(),
+        ),
         # IncludeLaunchDescription(
         #     PythonLaunchDescriptionSource([get_package_share_directory('nav2_bringup'),'/launch','/bringup_launch.py']),
         #     launch_arguments={
