@@ -15,6 +15,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         (os.path.join("share", package_name, 'launch'), glob("launch/*.launch.py")),
         (os.path.join("share", package_name, 'config'), glob("config/*")),
+        (os.path.join("share", package_name, 'worlds/simple_maze'), glob("worlds/simple_maze/*")),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -25,7 +26,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'occupancy_grid_pub = autonomous_tb3.occupancy_grid_pub:main'
+            'occupancy_grid_pub = autonomous_tb3.occupancy_grid_pub:main',
+            'sdf_spawner = autonomous_tb3.spawn_entity:main'
         ],
     },
 )

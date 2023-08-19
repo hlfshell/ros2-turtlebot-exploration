@@ -26,7 +26,7 @@ def generate_launch_description():
             )
         ),
 
-        # # Integrate our nav2 stack
+        # Integrate our nav2 stack
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
                 [get_package_share_directory('nav2_bringup'), '/launch', '/bringup_launch.py']
@@ -34,14 +34,9 @@ def generate_launch_description():
             launch_arguments={
                 "map": map_file,
                 "params_file": params_file,
+                "use_sim_time": "true",
             }.items(),
         ),
-        # IncludeLaunchDescription(
-        #     PythonLaunchDescriptionSource([get_package_share_directory('nav2_bringup'),'/launch','/bringup_launch.py']),
-        #     launch_arguments={
-        #     'map':map_file,
-        #     'params_file': params_file}.items(),
-        # ),
 
         # Rviz2 bringup
         Node(
@@ -54,29 +49,3 @@ def generate_launch_description():
             ],
         )
     ])
-
-    # return LaunchDescription([
-
-    # # Bringing our Robot
-    # IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource([get_package_share_directory('turtlebot3_gazebo'),'/launch','/turtlebot3_world.launch.py'])
-    # ),
-    # # Integerating Nav2 Stack
-    # IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource([get_package_share_directory('nav2_bringup'),'/launch','/bringup_launch.py']),
-    #     launch_arguments={
-    #     'map':map_file,
-    #     'params_file': params_file}.items(),
-
-    # ),
-
-    # # Rviz2 bringup
-    # Node(
-    #     package='rviz2',
-    #     output='screen',
-    #     executable='rviz2',
-    #     name='rviz2_node',
-    #     arguments=['-d',rviz_config]
-
-    # ),
-    # ])
